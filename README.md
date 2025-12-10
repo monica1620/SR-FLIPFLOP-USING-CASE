@@ -34,15 +34,62 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+
+
+1. Open Quartus Prime and create a new project.
+2. Create a new Verilog file and name it appropriately.
+3. Declare inputs S, R, clk and output Q.
+4. Use an `always @(posedge clk)` block to describe the SR flip-flop.
+5. Write a `case` statement with `{S,R}` as the selector.
+6. Add conditions for 00 (hold), 01 (reset), and 10 (set).
+7. Mark 11 as invalid or assign an unknown state.
+8. End the case block and close the module.
+9. Compile the code and fix any errors.
+10. Open the waveform editor and add all signals.
+11. Apply S, R, and clock inputs.
+12. Run the simulation.
+13. Verify the results with the truth table.
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* 
+   Program for SR flip-flop and verification of truth table in Quartus
+   Developed by: Monica R
+   Register Number: 25010138
 */
+```
+module SRflipflop(S, R, clk, q, qbar);
+    input S, R, clk;
+    output reg q, qbar;
+
+    initial
+    begin
+        q     = 1'b0;
+        qbar  = 1'b1;
+    end
+
+    always @(posedge clk)
+    begin
+        case ({S, R})
+            2'b00: q <= q;        // Hold
+            2'b01: q <= 1'b0;     // Reset
+            2'b10: q <= 1'b1;     // Set
+            2'b11: q <= 1'bx;     // Invalid
+        endcase
+
+        qbar <= ~q;
+    end
+endmodule
+
+```
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/030ef985-bcee-4b52-ba0a-4f67dd2c1697" />
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+
 
 **RESULTS**
