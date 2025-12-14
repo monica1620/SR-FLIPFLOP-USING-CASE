@@ -53,11 +53,11 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **PROGRAM**
 
-/* 
-   Program for SR flip-flop and verification of truth table in Quartus
-   Developed by: Monica R
-   Register Number: 25010138
-*/
+**Program:** SR Flip-Flop using Case Statement  
+**Developed by:** Monica R  
+**Register Number:** 25010138
+
+
 ```
 module SRflipflop(S, R, clk, q, qbar);
     input S, R, clk;
@@ -95,3 +95,5 @@ endmodule
 
 
 **RESULTS**
+
+The SR flip-flop was successfully implemented and simulated in Quartus Prime. The outputs matched the truth table, verifying correct hold, set, and reset operations on the positive clock edge.
